@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Sidebar Note Taker",
+  "version": "1.0",
+  "description": "A browser extension that opens a sidebar for note-taking.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
